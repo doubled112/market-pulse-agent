@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Market Pulse</title>
+<style>
+  body { font-family: -apple-system, Arial, sans-serif; background: #0f1117; color: #e6e6e6; padding: 40px; }
+  h1 { font-weight: 600; }
+  .card { background: #1a1d27; border-radius: 12px; padding: 24px; margin-bottom: 16px; max-width: 400px; }
+  .name { font-size: 14px; color: #9aa0ac; text-transform: uppercase; letter-spacing: 1px; }
+  .price { font-size: 32px; font-weight: 700; margin: 8px 0; }
+  .change.up { color: #4caf50; }
+  .change.down { color: #f44336; }
+  .meta { font-size: 12px; color: #6a7180; margin-top: 12px; }
+</style>
+</head>
+<body>
+  <h1>Market Pulse</h1>
+  <div id="cards">Loading...</div>
+  <p class="meta" id="updated"></p>
+
+  <script>
+    fetch('data.json?t=' + Date.now())
+      .then(r => r.json())
+      .then(data => {
+        const container = document.getElementById('cards');
+        container.innerHTML = '';
+        for (const key in data.indices) {
+          const idx = data.indices[key];
+          if (idx.error) continue;
+          const direction = idx.change >= 0 ? 'up' : 'down';
+          const arrow = idx.change >= 0 ? '▲' : '▼';
+          container.innerHTML += `
+            <div class="card">
+              <div class="name">${idx.name}</div>
+              <div class="price">${idx.latest_close.toLocaleString()}</div>
+              <div class="change ${direction}">${arrow} ${idx.change} (${idx.pct_change}%)</div>
+              <div class="meta">As of ${idx.as_of}</div>
+            </div>`;
+        }
+        document.getElementById('updated').textContent =
+          'Last updated: ' + new Date(data.processed_at).toLocaleString();
+      });
+  </script>
+</body>
+</html>
