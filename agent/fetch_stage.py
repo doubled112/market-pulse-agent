@@ -7,6 +7,7 @@ Does NOT calculate anything or format for display — just gets the data.
 import yfinance as yf
 import json
 from datetime import datetime, timezone
+from pathlib import Path
 
 TICKERS = {
     "sp500": "^GSPC",
@@ -39,6 +40,7 @@ def fetch_prices():
 
 def fetch_and_save():
     output = fetch_prices()
+    Path("data").mkdir(exist_ok=True)
     with open("data/raw_prices.json", "w") as f:
         json.dump(output, f, indent=2)
     return output
