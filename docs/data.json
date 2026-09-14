@@ -1,20 +1,20 @@
 {
-  "processed_at": "2026-09-14T09:07:40.743944+00:00",
-  "fetched_at": "2026-09-14T09:07:40.743468+00:00",
+  "processed_at": "2026-09-14T21:15:18.613439+00:00",
+  "fetched_at": "2026-09-14T21:15:18.613011+00:00",
   "indices": {
     "sp500": {
       "name": "S&P 500",
-      "latest_close": 7656.98,
-      "change": 65.28,
-      "pct_change": 0.86,
-      "as_of": "2026-09-11"
+      "latest_close": 7619.98,
+      "change": -37.0,
+      "pct_change": -0.48,
+      "as_of": "2026-09-14"
     },
     "asx200": {
       "name": "ASX 200",
-      "latest_close": 8749.9,
-      "change": 8.7,
-      "pct_change": 0.1,
-      "as_of": "2026-09-14"
+      "latest_close": 8741.2,
+      "change": 0.0,
+      "pct_change": 0.0,
+      "as_of": "2026-09-11"
     }
   }
 }
