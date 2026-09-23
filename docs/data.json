@@ -1,13 +1,13 @@
 {
-  "processed_at": "2026-09-23T09:05:49.622206+00:00",
-  "fetched_at": "2026-09-23T09:05:49.621716+00:00",
+  "processed_at": "2026-09-23T21:15:53.928561+00:00",
+  "fetched_at": "2026-09-23T21:15:53.928137+00:00",
   "indices": {
     "sp500": {
       "name": "S&P 500",
-      "latest_close": NaN,
-      "change": NaN,
-      "pct_change": NaN,
-      "as_of": "2026-09-22"
+      "latest_close": 7706.03,
+      "change": 0.0,
+      "pct_change": 0.0,
+      "as_of": "2026-09-23"
     },
     "asx200": {
       "name": "ASX 200",
